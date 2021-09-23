@@ -6,7 +6,7 @@ from typing import Any, Union
 
 import pandas as pd
 from sklearn.base import ClassifierMixin, is_classifier
-from sklearn.experimental import enable_halving_search_cv
+from sklearn.experimental import enable_halving_search_cv  # noqa: F401
 from sklearn.metrics import (
     accuracy_score,
     average_precision_score,
@@ -139,14 +139,10 @@ def automl_classifier(
     return {
         "model": clf,
         "params": clf.get_params(),
-        "score": float(
-            pd.DataFrame(clf.cv_results_)[["mean_test_score"]].max()
-        ),
+        "score": float(pd.DataFrame(clf.cv_results_)[["mean_test_score"]].max()),
         "predict_time": predict_time,
         "cv_results_": clf.cv_results_,
-        "best_index_": int(
-            pd.DataFrame(clf.cv_results_)[["mean_test_score"]].idxmax()
-        ),
+        "best_index_": int(pd.DataFrame(clf.cv_results_)[["mean_test_score"]].idxmax()),
         "confusion_matrix": confusion_matrix(y_test, y_pred),
         "f1": f1_score(y_test, y_pred),
         "accuracy": accuracy_score(y_test, y_pred),
