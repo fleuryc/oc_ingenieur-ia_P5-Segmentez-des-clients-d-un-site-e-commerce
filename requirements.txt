@@ -17,7 +17,7 @@ pyflakes==2.3.1
 pyparsing==2.4.7
 pytest==6.2.5
 pytest-cov==2.12.1
-regex==2021.8.28
+regex==2021.9.24
 toml==0.10.2
 tomli==1.2.1
 types-requests==2.25.8
