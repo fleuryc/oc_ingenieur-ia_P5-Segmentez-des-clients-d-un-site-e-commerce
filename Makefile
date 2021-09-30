@@ -33,10 +33,17 @@ clean-venv: ## Remove virtual environment
 
 .PHONY: check-venv
 check-venv: ## Check that virtual environment is active
-	@echo ">>> Checking that virtual environment is active : '$(PWD)/env' ..."
-	@test "$(VIRTUAL_ENV)" = "$(PWD)/env" || { \
+	@echo ">>> Checking that this project's virtual environment is active : '$(PWD)/env' ..."
+	@python -c "import sys; sys.exit(0) if (hasattr(sys, 'real_prefix') or (hasattr(sys, 'base_prefix') and sys.base_prefix != sys.prefix)) else sys.exit(1)" || { \
 		echo ">>> ERROR : Virtual environment must be active !"; \
 		echo ">>> Activate with : 'source env/bin/activate' ."; \
+		echo ""; \
+		exit 1; \
+	}
+	@test "$(VIRTUAL_ENV)" = "$(PWD)/env" || { \
+		echo ">>> ERROR : Virtual environment must be '$(PWD)/env' !"; \
+		echo ">>> Deactivate active venv ('$(VIRTUAL_ENV)') with : 'deactivate' ."; \
+		echo ">>> Activate this project's venv with : 'source env/bin/activate' ."; \
 		echo ""; \
 		exit 1; \
 	}
