@@ -28,7 +28,7 @@ isort==5.9.3
 jedi==0.18.0
 Jinja2==3.0.1
 json5==0.9.6
-jsonschema==3.2.0
+jsonschema==4.0.1
 jupyter-client==7.0.4
 jupyter-core==4.8.1
 jupyter-server==1.11.0
