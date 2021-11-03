@@ -22,11 +22,11 @@ pyflakes==2.3.1
 pyparsing==2.4.7
 pytest==6.2.5
 pytest-cov==3.0.0
-PyYAML==5.4.1
+PyYAML==6.0
 regex==2021.11.2
 six==1.16.0
 smmap==4.0.0
-stevedore==3.4.0
+stevedore==3.5.0
 toml==0.10.2
 tomli==1.2.1
 typing-extensions==3.10.0.2
